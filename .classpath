@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/javassist-3.4.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/jtds-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/slf4j-simple-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Santiago/Desktop/Aplicaciones Distribuidas/TPO_Distribuidas/lib/jcifs.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
