@@ -19,6 +19,10 @@ public class ProductoView {
 		this.precio = precio;
 	}
 
+	public ProductoView() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getIdentificador() {
 		return identificador;
 	}
