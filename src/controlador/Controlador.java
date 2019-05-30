@@ -18,12 +18,14 @@ import exceptions.RubroException;
 import exceptions.SubRubroException;
 import exceptions.UsuarioException;
 import negocio.Cliente;
+import negocio.ItemPedido;
 import negocio.Pedido;
 import negocio.Producto;
 import negocio.Rubro;
 import negocio.SubRubro;
 import negocio.Usuario;
 import view.ClienteView;
+import view.ItemPedidoView;
 import view.PedidoView;
 import view.ProductoView;
 import view.RubroView;
@@ -91,24 +93,25 @@ public class Controlador {
 		producto.update();
 	}
 	/*Probado*/
-	public int crearPedido(PedidoView pedido) throws ClienteException{
+	public PedidoView crearPedido(PedidoView pedido) throws ClienteException{
 		Cliente cliente = ClienteDAO.getInstancia().findClienteByCuit(pedido.getCliente().getCuil());
 		Pedido nuevoPedido = new Pedido(cliente);
 		nuevoPedido.save();
-		return nuevoPedido.getNumeroPedido();
+		return nuevoPedido.toView();
 	}
 	/*Probado*/
-	public int crearPedido(String cuit) throws ClienteException {
+	public PedidoView crearPedido(String cuit) throws ClienteException {
 		Cliente cliente = ClienteDAO.getInstancia().findClienteByCuit(cuit);
 		Pedido nuevoPedido = new Pedido(cliente);
 		nuevoPedido.save();
-		return nuevoPedido.getNumeroPedido();		
+		return nuevoPedido.toView();	
 	}
 	/*Probado*/
-	public void agregarProductoEnPedido(int numeroPedido, int identificadorProducto, int cantidad) throws PedidoException, ProductoException{
+	public ItemPedidoView agregarProductoEnPedido(int numeroPedido, int identificadorProducto, int cantidad) throws PedidoException, ProductoException{
 		Pedido pedido = PedidoDAO.getInstancia().findPedidoByNumero(numeroPedido);
 		Producto producto = ProductoDAO.getInstancia().findProductoByIdentificador(identificadorProducto);
-		pedido.addProductoEnPedido(producto, cantidad);
+		ItemPedido item = pedido.addProductoEnPedido(producto, cantidad);
+		return item.toView();
 	}
 	/*Probado*/
 	public void eliminarPedido(int numeroPedido){
@@ -121,6 +124,12 @@ public class Controlador {
 	/*Probado*/
 	public PedidoView getPedidoById(int numero) throws PedidoException{
 		return PedidoDAO.getInstancia().findPedidoByNumero(numero).toView();
+	}
+	public List<PedidoView> getPedidos() {
+		List<PedidoView> resultado = new ArrayList<PedidoView>();
+		for(Pedido p : PedidoDAO.getInstancia().findAll())
+				resultado.add(p.toView());
+		return resultado;
 	}
 	/*Probado*/	
 	public List<RubroView> getRubros(){
@@ -168,5 +177,7 @@ public class Controlador {
 			resultado.add(cliente.toView());
 		return resultado;
 	}
-
+	public ProductoView getProductoById(int id) throws ProductoException {
+		return ProductoDAO.getInstancia().findProductoByIdentificador(id).toView();
+	}
 }

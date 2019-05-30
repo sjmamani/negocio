@@ -10,7 +10,8 @@ public class ProductoView {
 	private String codigoBarras;
 	private float precio;
 	
-	public ProductoView(SubRubroView subRubro, RubroView rubro, String nombre, String marca, String codigoBarras, float precio) {
+	public ProductoView(int identificador, SubRubroView subRubro, RubroView rubro, String nombre, String marca, String codigoBarras, float precio) {
+		this.identificador = identificador;
 		this.subRubro = subRubro;
 		this.rubro = rubro;
 		this.nombre = nombre;

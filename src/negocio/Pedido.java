@@ -31,11 +31,11 @@ public class Pedido {
 		this.items = new ArrayList<ItemPedido>();
 	}
 
-	public void addProductoEnPedido(Producto producto, int cantidad){
+	public ItemPedido addProductoEnPedido(Producto producto, int cantidad){
 		ItemPedido itemPedido = new ItemPedido(producto, cantidad);
 		itemPedido.save(this);
 		items.add(itemPedido);
-		
+		return itemPedido;
 	}
 	
 	public void addProductoEnPedido(int numero, Producto producto, int cantidad, float precio){

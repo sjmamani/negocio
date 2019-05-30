@@ -66,7 +66,7 @@ public class Producto {
 	}
 	
 	public ProductoView toView(){
-		return new ProductoView(subRubro.toView(), rubro.toView(), nombre, marca, codigoBarras, precio);
+		return new ProductoView(identificador, subRubro.toView(), rubro.toView(), nombre, marca, codigoBarras, precio);
 	}
 
 	public void setPrecio(float precio) {

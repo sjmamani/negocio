@@ -1,12 +1,11 @@
 package test;
 
-import daos.ClienteDAO;
-import exceptions.ClienteException;
-import negocio.Cliente;
+import exceptions.PedidoException;
+import exceptions.ProductoException;
 
 public class Test {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws PedidoException, ProductoException {
 		// TODO Auto-generated method stub
 		/*
 		 * SubRubro r1 = SubRubroDao.getInstancia().findByCodigo(2);
@@ -112,13 +111,13 @@ public class Test {
 		 * Auto-generated catch block e.printStackTrace(); }
 		 */
 		
-		try {
-			Cliente cliente = ClienteDAO.getInstancia().findClienteByCuit("30-30745281-1");
-			System.out.println(cliente.getNombre());
-		} catch (ClienteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			int nro = Controlador.getInstancia().crearPedido("38-3992034-1");
+//			Controlador.getInstancia().agregarProductoEnPedido(nro, 1, 2);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 }
