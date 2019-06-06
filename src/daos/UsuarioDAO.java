@@ -1,6 +1,7 @@
 package daos;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 import org.hibernate.HibernateException;
@@ -86,7 +87,18 @@ public class UsuarioDAO {
 	
 	
 	UsuarioEntity toEntity(Usuario usuario){
-		return null;
+		UsuarioEntity ue = new UsuarioEntity();
+		ue.setNombre(usuario.getNombre());
+		ue.setPassword(usuario.getPassword());
+		ue.setCantidad(usuario.getCantidadPasswords());
+		ue.setPasswordsAnteriores(usuario.getUltimasPasswords());
+		ue.setHabilitado("Si");
+		LocalDate sdate = LocalDate.now().plusMonths(2);
+		java.sql.Date ndate = java.sql.Date.valueOf(sdate);
+		ue.setUltimaFechaCambio(ndate);
+		ue.setFechaCreacion(ndate);
+		
+		return ue;
 	}
 	
 	Usuario toNegocio(UsuarioEntity usuario){

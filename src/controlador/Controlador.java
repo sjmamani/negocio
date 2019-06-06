@@ -180,4 +180,13 @@ public class Controlador {
 	public ProductoView getProductoById(int id) throws ProductoException {
 		return ProductoDAO.getInstancia().findProductoByIdentificador(id).toView();
 	}
+
+	public void altaUsuario(String nombre, String password) throws CambioPasswordException, UsuarioException {
+		// TODO Auto-generated method stub
+		Usuario usuario = UsuarioDAO.getInstancia().getUsuarioByNombre(nombre);
+		if(usuario==null)
+			new Usuario(nombre,password).save();
+		else
+			throw new UsuarioException("Los datos ingresados corresponden a un usuario existente");
+	}
 }

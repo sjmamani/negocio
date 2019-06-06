@@ -31,6 +31,7 @@ public class Pedido {
 		this.items = new ArrayList<ItemPedido>();
 	}
 
+
 	public ItemPedido addProductoEnPedido(Producto producto, int cantidad){
 		ItemPedido itemPedido = new ItemPedido(producto, cantidad);
 		itemPedido.save(this);
@@ -41,6 +42,7 @@ public class Pedido {
 	public void addProductoEnPedido(int numero, Producto producto, int cantidad, float precio){
 		items.add(new ItemPedido(numero, producto, cantidad, precio));
 	}
+	
 	
 	public int getNumeroPedido() {
 		return numeroPedido;

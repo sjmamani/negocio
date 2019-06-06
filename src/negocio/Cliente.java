@@ -9,10 +9,6 @@ public class Cliente {
 	private String cuit;
 	private boolean activo;
 	
-	public Cliente() {
-		super();
-	}
-	
 	public Cliente(String nombre, String cuil) {
 		this.nombre = nombre;
 		this.cuit = cuil;

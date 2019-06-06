@@ -16,9 +16,9 @@ public class Usuario {
 	private String[] ultimasPasswords;
 	private int cantidadPasswords;
 	
-	public Usuario(String nombre) {
+	public Usuario(String nombre, String password) {
 		this.nombre = nombre;
-		this.password = nombre;
+		this.password = password;
 		this.ultimaFechaCambio = new Date(Calendar.getInstance().getTimeInMillis() - 3500000000l);
 		this.ultimasPasswords = new String[10];
 		this.cantidadPasswords = 0;
@@ -113,5 +113,17 @@ public class Usuario {
 
 	public int getCantidadPasswords() {
 		return cantidadPasswords;
+	}
+
+	public void save() throws CambioPasswordException {
+		// TODO Auto-generated method stub
+		if(password.length() < 8   || 
+				   password.contains("=")  ||
+				   password.contains("'")  ||
+				   password.contains("\"") || 
+				   password.contains(".")) {
+					throw new CambioPasswordException("El password no contepla los requisitos basicos de seguridad");
+		}
+		UsuarioDAO.getInstancia().save(this);
 	}
 }

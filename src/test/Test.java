@@ -1,11 +1,16 @@
 package test;
 
-import exceptions.PedidoException;
-import exceptions.ProductoException;
+import controlador.Controlador;
+import daos.ClienteDAO;
+import daos.UsuarioDAO;
+import exceptions.CambioPasswordException;
+import exceptions.ClienteException;
+import negocio.Cliente;
+import negocio.Usuario;
 
 public class Test {
 
-	public static void main(String[] args) throws PedidoException, ProductoException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*
 		 * SubRubro r1 = SubRubroDao.getInstancia().findByCodigo(2);
@@ -111,13 +116,13 @@ public class Test {
 		 * Auto-generated catch block e.printStackTrace(); }
 		 */
 		
-//		try {
-//			int nro = Controlador.getInstancia().crearPedido("38-3992034-1");
-//			Controlador.getInstancia().agregarProductoEnPedido(nro, 1, 2);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			//Usuario u = new Usuario("admin12345");
+			System.out.println(Controlador.getInstancia().login("admin12345", "admin12345"));
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
