@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Calendar;
 
-import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 
@@ -76,13 +75,17 @@ public class UsuarioDAO {
 			throw new UsuarioException("No existe el usuaio " + nombre); 
 	}
 	
-	public void save(Usuario usuario){
+	public void save(Usuario usuario) throws UsuarioException{
 		UsuarioEntity aux = toEntity(usuario);
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		Session s = sf.openSession();
 		s.beginTransaction();
-		s.saveOrUpdate(aux);
+		UsuarioEntity recuperado = (UsuarioEntity) s.createQuery("from UsuarioEntity where nombre = ?").setString(0, usuario.getNombre()).uniqueResult();		
 		s.getTransaction().commit();
+		if(recuperado==null)
+			s.saveOrUpdate(aux);
+		else
+			throw new UsuarioException("Los datos ingresados corresponden a un usuario existente");
 	}
 	
 	

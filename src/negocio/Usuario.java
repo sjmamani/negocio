@@ -115,7 +115,7 @@ public class Usuario {
 		return cantidadPasswords;
 	}
 
-	public void save() throws CambioPasswordException {
+	public void save() throws CambioPasswordException, UsuarioException {
 		// TODO Auto-generated method stub
 		if(password.length() < 8   || 
 				   password.contains("=")  ||
