@@ -184,10 +184,9 @@ public class Controlador {
 
 	public void altaUsuario(String nombre, String password) throws CambioPasswordException, UsuarioException {
 		// TODO Auto-generated method stub
-		Usuario usuario = UsuarioDAO.getInstancia().getUsuarioByNombre(nombre);
-		if(usuario==null)
-			new Usuario(nombre,password).save();
-		else
-			throw new UsuarioException("Los datos ingresados corresponden a un usuario existente");
+		
+		new Usuario(nombre,password).save();
+		
+			
 	}
 }
