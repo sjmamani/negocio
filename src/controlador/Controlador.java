@@ -75,11 +75,12 @@ public class Controlador {
 		usuario.actualizoPassword(password);
 	}
 	/*Probado*/
-	public void altaProducto(ProductoView recibido) throws RubroException, SubRubroException{
+	public ProductoView altaProducto(ProductoView recibido) throws RubroException, SubRubroException{
 		Rubro auxR = RubroDao.getInstancia().findByCodigo(recibido.getRubro().getCodigo());
 		SubRubro auxSR = SubRubroDao.getInstancia().findByCodigo(recibido.getSubRubro().getCodigo());
 		Producto producto = new Producto(auxSR,auxR,recibido.getNombre(), recibido.getMarca(), recibido.getCodigoBarras(), recibido.getPrecio());
 		producto.save();
+		return producto.toView();
 	}
 	/*Probado*/
 	public void bajaProducto(ProductoView recibido) throws ProductoException{

@@ -14,6 +14,8 @@ public class RubroView implements Serializable{
 		this.descripcion = descripcion;
 		this.habilitado = habilitado;
 	}
+	
+	public RubroView() {}
 
 	public int getCodigo() {
 		return codigo;
